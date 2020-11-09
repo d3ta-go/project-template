@@ -24,4 +24,5 @@ logs/
 temp/
 
 .env
-.d3ta-go
+d3ta-go
+project-template

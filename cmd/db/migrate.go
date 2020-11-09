@@ -1,6 +1,8 @@
 package db
 
 import (
+	"fmt"
+
 	"github.com/d3ta-go/project-template/interface/cmd-apps/database"
 	"github.com/spf13/cobra"
 )
@@ -12,7 +14,10 @@ var migrateCmd = &cobra.Command{
 	Long:  `Shows the db migrate command.`,
 	Run: func(cmd *cobra.Command, args []string) {
 
-		database.RunDBMigrate()
+		if err := database.RunDBMigrate(); err != nil {
+			fmt.Println("Error while running `RunDBMigrate()`: ")
+			panic(err)
+		}
 	},
 }
 
